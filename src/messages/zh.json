@@ -1,0 +1,40 @@
+{
+  "Brand": {
+    "name": "麦香园",
+    "tagline": "Plateau 的手工饺子",
+    "address": "Mont-Royal 大街，蒙特利尔",
+    "phone": "514-555-0199"
+  },
+  "Nav": {
+    "home": "首页",
+    "menu": "菜单",
+    "reserve": "订座",
+    "reviews": "评价",
+    "language": "语言"
+  },
+  "Home": {
+    "heroTitle": "每天手工现包的饺子",
+    "heroText": "Plateau 中心的北方家常菜。外带预订、订座，或直接来店。",
+    "ctaOrder": "外带预订",
+    "ctaReserve": "预订餐位",
+    "hoursTitle": "营业时间",
+    "closedMonday": "周一休息",
+    "hours": "周二至周日 · 11:30 – 21:30",
+    "favoritesTitle": "招牌菜",
+    "loyaltyTitle": "饺子积分卡",
+    "loyaltyText": "买十份饺子，第十一份免费。登录后自动累计。",
+    "favorites": {
+      "porkCabbage": "猪肉白菜饺",
+      "porkChive": "猪肉韭菜饺",
+      "beefOnion": "牛肉洋葱饺",
+      "shrimpPork": "虾仁猪肉饺"
+    }
+  },
+  "Footer": {
+    "privacy": "您的数据只保存在餐厅，绝不出售。"
+  },
+  "Common": {
+    "back": "返回",
+    "loading": "加载中…"
+  }
+}

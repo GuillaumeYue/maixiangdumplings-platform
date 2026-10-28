@@ -1,0 +1,40 @@
+{
+  "Brand": {
+    "name": "Maixiangyuan",
+    "tagline": "Raviolis faits main sur le Plateau",
+    "address": "Avenue du Mont-Royal, Montréal (QC)",
+    "phone": "514-555-0199"
+  },
+  "Nav": {
+    "home": "Accueil",
+    "menu": "Menu",
+    "reserve": "Réserver",
+    "reviews": "Avis",
+    "language": "Langue"
+  },
+  "Home": {
+    "heroTitle": "Raviolis faits main, chaque jour",
+    "heroText": "Cuisine du nord de la Chine au cœur du Plateau. Commandez pour emporter, réservez une table ou passez nous voir.",
+    "ctaOrder": "Commander pour emporter",
+    "ctaReserve": "Réserver une table",
+    "hoursTitle": "Heures d'ouverture",
+    "closedMonday": "Fermé le lundi",
+    "hours": "Mar–Dim · 11 h 30 – 21 h 30",
+    "favoritesTitle": "Les favoris",
+    "loyaltyTitle": "Carte fidélité raviolis",
+    "loyaltyText": "Achetez 10 portions de raviolis, la 11e est offerte. Automatique avec votre compte.",
+    "favorites": {
+      "porkCabbage": "Raviolis porc et chou",
+      "porkChive": "Raviolis porc et ciboule",
+      "beefOnion": "Raviolis bœuf et oignon",
+      "shrimpPork": "Raviolis crevettes et porc"
+    }
+  },
+  "Footer": {
+    "privacy": "Vos données restent chez le restaurant et ne sont jamais vendues."
+  },
+  "Common": {
+    "back": "Retour",
+    "loading": "Chargement…"
+  }
+}

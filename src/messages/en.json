@@ -1,0 +1,40 @@
+{
+  "Brand": {
+    "name": "Maixiangyuan",
+    "tagline": "Handmade dumplings on the Plateau",
+    "address": "Mont-Royal Avenue, Montréal (QC)",
+    "phone": "514-555-0199"
+  },
+  "Nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "reserve": "Reserve",
+    "reviews": "Reviews",
+    "language": "Language"
+  },
+  "Home": {
+    "heroTitle": "Handmade dumplings, every day",
+    "heroText": "Northern Chinese cooking in the heart of the Plateau. Pre-order takeout, book a table or just drop by.",
+    "ctaOrder": "Order takeout",
+    "ctaReserve": "Book a table",
+    "hoursTitle": "Opening hours",
+    "closedMonday": "Closed Mondays",
+    "hours": "Tue–Sun · 11:30 am – 9:30 pm",
+    "favoritesTitle": "Favourites",
+    "loyaltyTitle": "Dumpling loyalty card",
+    "loyaltyText": "Buy 10 portions of dumplings, the 11th is on us. Tracked automatically with your account.",
+    "favorites": {
+      "porkCabbage": "Pork & cabbage dumplings",
+      "porkChive": "Pork & chive dumplings",
+      "beefOnion": "Beef & onion dumplings",
+      "shrimpPork": "Shrimp & pork dumplings"
+    }
+  },
+  "Footer": {
+    "privacy": "Your data stays with the restaurant and is never sold."
+  },
+  "Common": {
+    "back": "Back",
+    "loading": "Loading…"
+  }
+}
