@@ -1,0 +1,169 @@
+// SQLite locally; switch provider to "postgresql" for deployment.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  READY
+  PICKED_UP
+  CANCELLED
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  SEATED
+  NO_SHOW
+  CANCELLED
+}
+
+enum ReviewStatus {
+  NEW
+  READ
+  REPLIED
+  HIDDEN
+}
+
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String
+  phone        String?
+  role         Role     @default(CUSTOMER)
+  locale       String   @default("fr")
+  createdAt    DateTime @default(now())
+
+  orders       Order[]
+  reservations Reservation[]
+  reviews      Review[]
+  loyalty      LoyaltyTransaction[]
+}
+
+model MenuCategory {
+  id        String     @id @default(cuid())
+  slug      String     @unique
+  nameFr    String
+  nameEn    String?
+  nameZh    String?
+  sortOrder Int        @default(0)
+  items     MenuItem[]
+}
+
+model MenuItem {
+  id                String       @id @default(cuid())
+  categoryId        String
+  category          MenuCategory @relation(fields: [categoryId], references: [id])
+  slug              String       @unique
+  nameFr            String
+  nameEn            String?
+  nameZh            String?
+  descFr            String?
+  descEn            String?
+  descZh            String?
+  priceCents        Int
+  imageUrl          String?
+  isAvailable       Boolean      @default(true)
+  isLoyaltyEligible Boolean      @default(false)
+  sortOrder         Int          @default(0)
+  orderItems        OrderItem[]
+}
+
+model Order {
+  id           String      @id @default(cuid())
+  userId       String
+  user         User        @relation(fields: [userId], references: [id])
+  status       OrderStatus @default(PENDING)
+  pickupAt     DateTime
+  note         String?
+  totalCents   Int
+  usedReward   Boolean     @default(false)
+  enteredInPos Boolean     @default(false)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  items   OrderItem[]
+  loyalty LoyaltyTransaction[]
+
+  @@index([createdAt])
+  @@index([pickupAt])
+}
+
+model OrderItem {
+  id             String   @id @default(cuid())
+  orderId        String
+  order          Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  menuItemId     String
+  menuItem       MenuItem @relation(fields: [menuItemId], references: [id])
+  nameSnapshot   String
+  quantity       Int
+  unitPriceCents Int
+}
+
+model Reservation {
+  id         String            @id @default(cuid())
+  userId     String?
+  user       User?             @relation(fields: [userId], references: [id])
+  name       String
+  phone      String
+  partySize  Int
+  reservedAt DateTime
+  status     ReservationStatus @default(PENDING)
+  note       String?
+  createdAt  DateTime          @default(now())
+
+  @@index([reservedAt])
+}
+
+model Review {
+  id        String       @id @default(cuid())
+  userId    String
+  user      User         @relation(fields: [userId], references: [id])
+  rating    Int
+  body      String
+  status    ReviewStatus @default(NEW)
+  reply     String?
+  repliedAt DateTime?
+  createdAt DateTime     @default(now())
+
+  @@index([createdAt])
+}
+
+model LoyaltyTransaction {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  orderId   String?
+  order     Order?   @relation(fields: [orderId], references: [id])
+  delta     Int // +N stamps earned, -10 reward redeemed, manual adjustments
+  reason    String
+  createdAt DateTime @default(now())
+}
+
+model DailyLog {
+  id              String   @id @default(cuid())
+  date            DateTime @unique // midnight local, date only
+  revenueCents    Int
+  dineInCovers    Int      @default(0)
+  dineInOrders    Int      @default(0)
+  takeoutOrders   Int      @default(0)
+  uberOrders      Int      @default(0)
+  doordashOrders  Int      @default(0)
+  weatherNote     String?
+  note            String?
+  updatedAt       DateTime @updatedAt
+}
+
