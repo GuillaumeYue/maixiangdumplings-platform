@@ -10,7 +10,10 @@
     "menu": "Menu",
     "reserve": "Reserve",
     "reviews": "Reviews",
-    "language": "Language"
+    "language": "Language",
+    "login": "Log in",
+    "register": "Sign up",
+    "logout": "Log out"
   },
   "Home": {
     "heroTitle": "Handmade dumplings, every day",
@@ -36,5 +39,21 @@
   "Common": {
     "back": "Back",
     "loading": "Loading…"
+  },
+  "Auth": {
+    "loginTitle": "Log in",
+    "registerTitle": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "phone": "Phone (optional)",
+    "login": "Log in",
+    "register": "Create account",
+    "noAccount": "No account?",
+    "haveAccount": "Already have an account?",
+    "errInvalid": "Invalid email or password.",
+    "errExists": "An account with this email already exists.",
+    "errWeak": "Password must be at least 8 characters.",
+    "demoHint": "Demo: client@example.com / client1234 · owner@example.com / admin1234"
   }
 }

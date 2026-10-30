@@ -1,9 +1,11 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { getCurrentUser } from "@/lib/auth";
+import { logout } from "@/lib/actions/auth";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
 export async function SiteHeader() {
-  const [t, tb] = await Promise.all([getTranslations("Nav"), getTranslations("Brand")]);
+  const [t, tb, user] = await Promise.all([getTranslations("Nav"), getTranslations("Brand"), getCurrentUser()]);
   return (
     <header className="sticky top-0 z-20 border-b border-ink/10 bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
@@ -14,6 +16,14 @@ export async function SiteHeader() {
         <nav className="flex items-center gap-1 text-sm">
           <Link className="btn-ghost" href="/">{t("menu")}</Link>
           <Link className="btn-ghost hidden sm:inline-flex" href="/">{t("reserve")}</Link>
+          {user ? (
+            <>
+              <span className="px-2 text-ink/60">{user.name}</span>
+              <form action={logout}><button className="btn-ghost" type="submit">{t("logout")}</button></form>
+            </>
+          ) : (
+            <Link className="btn-outline" href="/login">{t("login")}</Link>
+          )}
           <LocaleSwitcher />
         </nav>
       </div>

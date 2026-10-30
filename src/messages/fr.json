@@ -10,7 +10,10 @@
     "menu": "Menu",
     "reserve": "Réserver",
     "reviews": "Avis",
-    "language": "Langue"
+    "language": "Langue",
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "logout": "Déconnexion"
   },
   "Home": {
     "heroTitle": "Raviolis faits main, chaque jour",
@@ -36,5 +39,21 @@
   "Common": {
     "back": "Retour",
     "loading": "Chargement…"
+  },
+  "Auth": {
+    "loginTitle": "Connexion",
+    "registerTitle": "Créer un compte",
+    "email": "Courriel",
+    "password": "Mot de passe",
+    "name": "Nom",
+    "phone": "Téléphone (optionnel)",
+    "login": "Se connecter",
+    "register": "Créer le compte",
+    "noAccount": "Pas de compte ?",
+    "haveAccount": "Déjà un compte ?",
+    "errInvalid": "Courriel ou mot de passe invalide.",
+    "errExists": "Un compte existe déjà avec ce courriel.",
+    "errWeak": "Le mot de passe doit avoir au moins 8 caractères.",
+    "demoHint": "Démo : client@example.com / client1234 · owner@example.com / admin1234"
   }
 }
