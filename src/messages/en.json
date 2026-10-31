@@ -55,5 +55,10 @@
     "errExists": "An account with this email already exists.",
     "errWeak": "Password must be at least 8 characters.",
     "demoHint": "Demo: client@example.com / client1234 · owner@example.com / admin1234"
+  },
+  "Menu": {
+    "title": "Menu",
+    "soldOut": "Sold out",
+    "loyalty": "Loyalty"
   }
 }

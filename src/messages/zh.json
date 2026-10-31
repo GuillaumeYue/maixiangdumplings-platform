@@ -55,5 +55,10 @@
     "errExists": "该邮箱已注册。",
     "errWeak": "密码至少 8 位。",
     "demoHint": "演示账号：client@example.com / client1234 · owner@example.com / admin1234"
+  },
+  "Menu": {
+    "title": "菜单",
+    "soldOut": "售罄",
+    "loyalty": "可积分"
   }
 }

@@ -55,5 +55,10 @@
     "errExists": "Un compte existe déjà avec ce courriel.",
     "errWeak": "Le mot de passe doit avoir au moins 8 caractères.",
     "demoHint": "Démo : client@example.com / client1234 · owner@example.com / admin1234"
+  },
+  "Menu": {
+    "title": "Menu",
+    "soldOut": "Épuisé",
+    "loyalty": "Fidélité"
   }
 }

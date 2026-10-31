@@ -17,7 +17,7 @@ export default async function HomePage() {
           <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-5xl">{t("heroTitle")}</h1>
           <p className="text-lg text-ink/70">{t("heroText")}</p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/" className="btn-primary">{t("ctaOrder")}</Link>
+            <Link href="/menu" className="btn-primary">{t("ctaOrder")}</Link>
             <Link href="/" className="btn-outline">{t("ctaReserve")}</Link>
           </div>
         </div>
