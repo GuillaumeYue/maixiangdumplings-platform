@@ -59,6 +59,19 @@
   "Menu": {
     "title": "Menu",
     "soldOut": "Épuisé",
-    "loyalty": "Fidélité"
+    "loyalty": "Fidélité",
+    "cart": "Panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "pickupTime": "Heure de ramassage",
+    "note": "Note pour la cuisine",
+    "loginToOrder": "Connectez-vous pour commander",
+    "placeOrder": "Confirmer la commande",
+    "payNotice": "Vous payez au comptoir lors du ramassage.",
+    "placed": "Commande reçue ! Nous vous attendons à {time}.",
+    "errClosed": "Le restaurant est fermé à cette heure.",
+    "errTooSoon": "Choisissez une heure au moins 30 minutes plus tard.",
+    "errEmpty": "Le panier est vide.",
+    "errUnavailable": "Un article n'est plus disponible."
   }
 }

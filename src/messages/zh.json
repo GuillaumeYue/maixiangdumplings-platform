@@ -59,6 +59,19 @@
   "Menu": {
     "title": "菜单",
     "soldOut": "售罄",
-    "loyalty": "可积分"
+    "loyalty": "可积分",
+    "cart": "购物车",
+    "empty": "购物车是空的",
+    "total": "合计",
+    "pickupTime": "取餐时间",
+    "note": "给厨房的备注",
+    "loginToOrder": "登录后下单",
+    "placeOrder": "确认下单",
+    "payNotice": "取餐时在柜台付款。",
+    "placed": "已收到订单，{time} 见！",
+    "errClosed": "该时间餐厅不营业。",
+    "errTooSoon": "请选择至少 30 分钟之后的时间。",
+    "errEmpty": "购物车是空的。",
+    "errUnavailable": "有菜品已下架。"
   }
 }

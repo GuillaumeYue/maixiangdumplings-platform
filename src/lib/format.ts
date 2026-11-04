@@ -19,3 +19,6 @@ export function localDesc(item: LocalizedDesc, locale: string) {
   if (locale === "zh") return item.descZh ?? item.descFr ?? "";
   return item.descFr ?? "";
 }
+
+export const formatTime = (d: Date, locale: string) =>
+  new Intl.DateTimeFormat(intlLocale(locale), { timeZone: "America/Toronto", timeStyle: "short" }).format(d);

@@ -59,6 +59,19 @@
   "Menu": {
     "title": "Menu",
     "soldOut": "Sold out",
-    "loyalty": "Loyalty"
+    "loyalty": "Loyalty",
+    "cart": "Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "pickupTime": "Pickup time",
+    "note": "Note for the kitchen",
+    "loginToOrder": "Log in to order",
+    "placeOrder": "Place order",
+    "payNotice": "You pay at the counter when you pick up.",
+    "placed": "Order received! See you at {time}.",
+    "errClosed": "The restaurant is closed at that time.",
+    "errTooSoon": "Pick a time at least 30 minutes from now.",
+    "errEmpty": "Cart is empty.",
+    "errUnavailable": "An item is no longer available."
   }
 }
