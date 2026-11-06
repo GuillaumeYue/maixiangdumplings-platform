@@ -22,3 +22,10 @@ export function localDesc(item: LocalizedDesc, locale: string) {
 
 export const formatTime = (d: Date, locale: string) =>
   new Intl.DateTimeFormat(intlLocale(locale), { timeZone: "America/Toronto", timeStyle: "short" }).format(d);
+
+export const formatDateTime = (d: Date, locale: string) =>
+  new Intl.DateTimeFormat(intlLocale(locale), {
+    timeZone: "America/Toronto",
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(d);

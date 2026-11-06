@@ -17,7 +17,7 @@ export async function login(_prev: ActionState, formData: FormData): Promise<Act
   if (!user || !(await verifyPassword(parsed.data.password, user.passwordHash))) return { error: "errInvalid" };
   await createSession(user);
   const locale = await getLocale();
-  const next = parsed.data.next && parsed.data.next.startsWith("/") ? parsed.data.next : "/";
+  const next = parsed.data.next && parsed.data.next.startsWith("/") ? parsed.data.next : "/account";
   redirect({ href: next, locale });
   return { ok: true };
 }
@@ -42,7 +42,7 @@ export async function register(_prev: ActionState, formData: FormData): Promise<
     data: { email, name: parsed.data.name, phone: parsed.data.phone || null, passwordHash: await hashPassword(parsed.data.password), locale },
   });
   await createSession(user);
-  redirect({ href: "/", locale });
+  redirect({ href: "/account", locale });
   return { ok: true };
 }
 

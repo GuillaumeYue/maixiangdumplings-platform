@@ -4,6 +4,7 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
+import { notifyAdmin } from "@/lib/mail";
 import { isOpenAt, MIN_LEAD_MINUTES } from "@/lib/hours";
 import type { ActionState } from "./auth";
 
@@ -37,6 +38,17 @@ export async function placeOrder(_prev: ActionState, formData: FormData): Promis
 
   await prisma.order.create({
     data: { userId: user.id, pickupAt, note, totalCents, items: { create: orderItems } },
+  });
+
+  await notifyAdmin({
+    subject: `Nouvelle commande à emporter · ${pickupAt.toLocaleTimeString("fr-CA", { hour: "2-digit", minute: "2-digit" })}`,
+    text: [
+      `Client : ${user.name} (${user.email})`,
+      `Ramassage : ${pickupAt.toLocaleString("fr-CA")}`,
+      ...orderItems.map((i) => `  ${i.quantity} × ${i.nameSnapshot}`),
+      `Total : ${(totalCents / 100).toFixed(2)} $ (paiement sur place)`,
+      note ? `Note : ${note}` : "",
+    ].filter(Boolean).join("\n"),
   });
 
   revalidatePath("/", "layout");

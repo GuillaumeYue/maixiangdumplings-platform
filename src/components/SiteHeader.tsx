@@ -18,7 +18,7 @@ export async function SiteHeader() {
           <Link className="btn-ghost hidden sm:inline-flex" href="/">{t("reserve")}</Link>
           {user ? (
             <>
-              <span className="px-2 text-ink/60">{user.name}</span>
+              <Link className="btn-ghost" href="/account">{t("account")}</Link>
               <form action={logout}><button className="btn-ghost" type="submit">{t("logout")}</button></form>
             </>
           ) : (

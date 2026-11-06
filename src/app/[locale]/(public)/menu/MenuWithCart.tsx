@@ -36,7 +36,7 @@ export function MenuWithCart({ categories, locale, loggedIn }: Props) {
         <div className="text-4xl">🥟</div>
         <p className="mt-3 text-lg font-medium">{t("placed", { time: formatTime(new Date(state.data.time), locale) })}</p>
         <p className="mt-1 text-sm text-ink/60">{t("payNotice")}</p>
-        <Link href="/" className="btn-primary mt-4">OK</Link>
+        <Link href="/account" className="btn-primary mt-4">OK</Link>
       </div>
     );
   }

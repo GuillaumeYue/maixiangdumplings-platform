@@ -13,7 +13,8 @@
     "language": "Language",
     "login": "Log in",
     "register": "Sign up",
-    "logout": "Log out"
+    "logout": "Log out",
+    "account": "My account"
   },
   "Home": {
     "heroTitle": "Handmade dumplings, every day",
@@ -73,5 +74,17 @@
     "errTooSoon": "Pick a time at least 30 minutes from now.",
     "errEmpty": "Cart is empty.",
     "errUnavailable": "An item is no longer available."
+  },
+  "Account": {
+    "title": "My account",
+    "orders": "My orders",
+    "noOrders": "No orders yet."
+  },
+  "Status": {
+    "PENDING": "Pending",
+    "CONFIRMED": "Confirmed",
+    "READY": "Ready",
+    "PICKED_UP": "Picked up",
+    "CANCELLED": "Cancelled"
   }
 }

@@ -13,7 +13,8 @@
     "language": "语言",
     "login": "登录",
     "register": "注册",
-    "logout": "退出"
+    "logout": "退出",
+    "account": "我的账户"
   },
   "Home": {
     "heroTitle": "每天手工现包的饺子",
@@ -73,5 +74,17 @@
     "errTooSoon": "请选择至少 30 分钟之后的时间。",
     "errEmpty": "购物车是空的。",
     "errUnavailable": "有菜品已下架。"
+  },
+  "Account": {
+    "title": "我的账户",
+    "orders": "我的订单",
+    "noOrders": "还没有订单。"
+  },
+  "Status": {
+    "PENDING": "待处理",
+    "CONFIRMED": "已确认",
+    "READY": "已备好",
+    "PICKED_UP": "已取餐",
+    "CANCELLED": "已取消"
   }
 }

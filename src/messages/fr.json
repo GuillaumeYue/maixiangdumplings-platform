@@ -13,7 +13,8 @@
     "language": "Langue",
     "login": "Connexion",
     "register": "Créer un compte",
-    "logout": "Déconnexion"
+    "logout": "Déconnexion",
+    "account": "Mon compte"
   },
   "Home": {
     "heroTitle": "Raviolis faits main, chaque jour",
@@ -73,5 +74,17 @@
     "errTooSoon": "Choisissez une heure au moins 30 minutes plus tard.",
     "errEmpty": "Le panier est vide.",
     "errUnavailable": "Un article n'est plus disponible."
+  },
+  "Account": {
+    "title": "Mon compte",
+    "orders": "Mes commandes",
+    "noOrders": "Aucune commande."
+  },
+  "Status": {
+    "PENDING": "En attente",
+    "CONFIRMED": "Confirmée",
+    "READY": "Prête",
+    "PICKED_UP": "Ramassée",
+    "CANCELLED": "Annulée"
   }
 }
