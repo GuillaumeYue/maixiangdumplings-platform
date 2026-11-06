@@ -105,5 +105,20 @@
     "errClosed": "Closed at that time.",
     "errPast": "Pick a future date.",
     "errInvalid": "Please check the form fields."
+  },
+  "Reviews": {
+    "title": "Customer reviews",
+    "write": "Write a review",
+    "rating": "Rating",
+    "body": "Your review",
+    "submit": "Post",
+    "success": "Thanks for your review!",
+    "errRate": "You already posted a review in the last 24 hours.",
+    "loginToReview": "Log in to leave a review",
+    "replyFrom": "Reply from the restaurant",
+    "googleTitle": "On Google",
+    "goGoogle": "Read / write on Google",
+    "empty": "No reviews yet.",
+    "errInvalid": "Please write at least a few words."
   }
 }

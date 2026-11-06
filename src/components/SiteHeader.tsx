@@ -16,6 +16,7 @@ export async function SiteHeader() {
         <nav className="flex items-center gap-1 text-sm">
           <Link className="btn-ghost" href="/menu">{t("menu")}</Link>
           <Link className="btn-ghost hidden sm:inline-flex" href="/reserve">{t("reserve")}</Link>
+          <Link className="btn-ghost hidden sm:inline-flex" href="/reviews">{t("reviews")}</Link>
           {user ? (
             <>
               <Link className="btn-ghost" href="/account">{t("account")}</Link>

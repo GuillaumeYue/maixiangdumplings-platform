@@ -105,5 +105,20 @@
     "errClosed": "Fermé à ce moment.",
     "errPast": "Choisissez une date future.",
     "errInvalid": "Vérifiez les champs du formulaire."
+  },
+  "Reviews": {
+    "title": "Avis des clients",
+    "write": "Écrire un avis",
+    "rating": "Note",
+    "body": "Votre avis",
+    "submit": "Publier",
+    "success": "Merci pour votre avis !",
+    "errRate": "Vous avez déjà publié un avis dans les dernières 24 heures.",
+    "loginToReview": "Connectez-vous pour laisser un avis",
+    "replyFrom": "Réponse du restaurant",
+    "googleTitle": "Sur Google",
+    "goGoogle": "Voir / écrire sur Google",
+    "empty": "Aucun avis pour l'instant.",
+    "errInvalid": "Écrivez au moins quelques mots."
   }
 }

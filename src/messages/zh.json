@@ -105,5 +105,20 @@
     "errClosed": "该时间不营业。",
     "errPast": "请选择未来的日期。",
     "errInvalid": "请检查填写的内容。"
+  },
+  "Reviews": {
+    "title": "顾客评价",
+    "write": "写评价",
+    "rating": "评分",
+    "body": "您的评价",
+    "submit": "发布",
+    "success": "感谢您的评价！",
+    "errRate": "您 24 小时内已发过评价。",
+    "loginToReview": "登录后评价",
+    "replyFrom": "餐厅回复",
+    "googleTitle": "Google 上",
+    "goGoogle": "去 Google 查看 / 评价",
+    "empty": "还没有评价。",
+    "errInvalid": "请至少写几个字。"
   }
 }

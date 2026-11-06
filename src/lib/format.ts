@@ -37,3 +37,6 @@ export const toDateKey = (d: Date) => {
   const day = String(d.getDate()).padStart(2, "0");
   return `${y}-${m}-${day}`;
 };
+
+export const formatDate = (d: Date, locale: string) =>
+  new Intl.DateTimeFormat(intlLocale(locale), { timeZone: "America/Toronto", dateStyle: "medium" }).format(d);
