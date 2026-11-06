@@ -29,3 +29,11 @@ export const formatDateTime = (d: Date, locale: string) =>
     dateStyle: "medium",
     timeStyle: "short",
   }).format(d);
+
+/** YYYY-MM-DD in local time, for <input type="date">. */
+export const toDateKey = (d: Date) => {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+};

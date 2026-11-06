@@ -78,13 +78,32 @@
   "Account": {
     "title": "Mon compte",
     "orders": "Mes commandes",
-    "noOrders": "Aucune commande."
+    "noOrders": "Aucune commande.",
+    "reservations": "Mes réservations",
+    "noReservations": "Aucune réservation."
   },
   "Status": {
     "PENDING": "En attente",
     "CONFIRMED": "Confirmée",
     "READY": "Prête",
     "PICKED_UP": "Ramassée",
-    "CANCELLED": "Annulée"
+    "CANCELLED": "Annulée",
+    "SEATED": "Arrivé",
+    "NO_SHOW": "Absent"
+  },
+  "Reserve": {
+    "title": "Réserver une table",
+    "date": "Date",
+    "time": "Heure",
+    "partySize": "Nombre de personnes",
+    "name": "Nom",
+    "phone": "Téléphone",
+    "note": "Demande spéciale",
+    "submit": "Réserver",
+    "success": "Réservation reçue ! Nous vous confirmerons rapidement.",
+    "errFull": "Ce créneau est complet. Essayez un autre horaire.",
+    "errClosed": "Fermé à ce moment.",
+    "errPast": "Choisissez une date future.",
+    "errInvalid": "Vérifiez les champs du formulaire."
   }
 }

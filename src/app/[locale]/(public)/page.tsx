@@ -18,7 +18,7 @@ export default async function HomePage() {
           <p className="text-lg text-ink/70">{t("heroText")}</p>
           <div className="flex flex-wrap gap-3">
             <Link href="/menu" className="btn-primary">{t("ctaOrder")}</Link>
-            <Link href="/" className="btn-outline">{t("ctaReserve")}</Link>
+            <Link href="/reserve" className="btn-outline">{t("ctaReserve")}</Link>
           </div>
         </div>
         <div className="card space-y-4">

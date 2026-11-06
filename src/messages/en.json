@@ -78,13 +78,32 @@
   "Account": {
     "title": "My account",
     "orders": "My orders",
-    "noOrders": "No orders yet."
+    "noOrders": "No orders yet.",
+    "reservations": "My reservations",
+    "noReservations": "No reservations yet."
   },
   "Status": {
     "PENDING": "Pending",
     "CONFIRMED": "Confirmed",
     "READY": "Ready",
     "PICKED_UP": "Picked up",
-    "CANCELLED": "Cancelled"
+    "CANCELLED": "Cancelled",
+    "SEATED": "Seated",
+    "NO_SHOW": "No-show"
+  },
+  "Reserve": {
+    "title": "Book a table",
+    "date": "Date",
+    "time": "Time",
+    "partySize": "Party size",
+    "name": "Name",
+    "phone": "Phone",
+    "note": "Special request",
+    "submit": "Book",
+    "success": "Reservation received! We'll confirm shortly.",
+    "errFull": "That slot is full. Try another time.",
+    "errClosed": "Closed at that time.",
+    "errPast": "Pick a future date.",
+    "errInvalid": "Please check the form fields."
   }
 }

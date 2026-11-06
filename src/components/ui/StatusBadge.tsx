@@ -6,6 +6,8 @@ const colors: Record<string, string> = {
   READY: "bg-emerald-100 text-emerald-800",
   PICKED_UP: "bg-zinc-100 text-zinc-700",
   CANCELLED: "bg-red-100 text-red-700",
+  SEATED: "bg-emerald-100 text-emerald-800",
+  NO_SHOW: "bg-red-100 text-red-700",
 };
 
 export function StatusBadge({ status }: { status: string }) {

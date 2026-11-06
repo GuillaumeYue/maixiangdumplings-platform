@@ -15,12 +15,15 @@ export default async function AccountPage() {
   const user = await getCurrentUser();
   if (!user) return redirect({ href: "/login?next=/account", locale });
   const t = await getTranslations("Account");
-  const orders = await prisma.order.findMany({
-    where: { userId: user.id },
-    orderBy: { createdAt: "desc" },
-    take: 20,
-    include: { items: true },
-  });
+  const [orders, reservations] = await Promise.all([
+    prisma.order.findMany({
+      where: { userId: user.id },
+      orderBy: { createdAt: "desc" },
+      take: 20,
+      include: { items: true },
+    }),
+    prisma.reservation.findMany({ where: { userId: user.id }, orderBy: { reservedAt: "desc" }, take: 10 }),
+  ]);
 
   return (
     <div className="space-y-8">
@@ -41,6 +44,21 @@ export default async function AccountPage() {
                   <span className="tabular-nums">{formatMoney(o.totalCents, locale)}</span>
                   <StatusBadge status={o.status} />
                 </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+      <section>
+        <h2 className="mb-3 font-semibold">{t("reservations")}</h2>
+        {reservations.length === 0 ? (
+          <p className="text-sm text-ink/60">{t("noReservations")}</p>
+        ) : (
+          <ul className="space-y-2">
+            {reservations.map((r) => (
+              <li key={r.id} className="card flex items-center justify-between py-3 text-sm">
+                <span>{formatDateTime(r.reservedAt, locale)} · {r.partySize}</span>
+                <StatusBadge status={r.status} />
               </li>
             ))}
           </ul>

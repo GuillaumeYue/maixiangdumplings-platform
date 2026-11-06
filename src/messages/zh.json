@@ -78,13 +78,32 @@
   "Account": {
     "title": "我的账户",
     "orders": "我的订单",
-    "noOrders": "还没有订单。"
+    "noOrders": "还没有订单。",
+    "reservations": "我的预订",
+    "noReservations": "还没有预订。"
   },
   "Status": {
     "PENDING": "待处理",
     "CONFIRMED": "已确认",
     "READY": "已备好",
     "PICKED_UP": "已取餐",
-    "CANCELLED": "已取消"
+    "CANCELLED": "已取消",
+    "SEATED": "已到店",
+    "NO_SHOW": "未到"
+  },
+  "Reserve": {
+    "title": "预订餐位",
+    "date": "日期",
+    "time": "时间",
+    "partySize": "人数",
+    "name": "姓名",
+    "phone": "电话",
+    "note": "特殊需求",
+    "submit": "预订",
+    "success": "已收到预订，我们会尽快确认。",
+    "errFull": "该时段已满，请换一个时间。",
+    "errClosed": "该时间不营业。",
+    "errPast": "请选择未来的日期。",
+    "errInvalid": "请检查填写的内容。"
   }
 }
