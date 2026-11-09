@@ -10,7 +10,9 @@ import { formatMoney, formatTime, localDesc, localName } from "@/lib/format";
 import { SubmitButton } from "@/components/ui/SubmitButton";
 
 type Cat = MenuCategory & { items: MenuItem[] };
-type Props = { categories: Cat[]; locale: string; loggedIn: boolean };
+type Props = { categories: Cat[]; locale: string; loggedIn: boolean; loyaltyBalance: number };
+
+const REWARD_STAMPS = 10;
 
 /** 45 minutes from now, rounded up to the next quarter hour, as a datetime-local value. */
 function defaultPickup() {
@@ -20,14 +22,19 @@ function defaultPickup() {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
-export function MenuWithCart({ categories, locale, loggedIn }: Props) {
+export function MenuWithCart({ categories, locale, loggedIn, loyaltyBalance }: Props) {
   const t = useTranslations("Menu");
   const [cart, setCart] = useState<Record<string, number>>({});
+  const [useReward, setUseReward] = useState(false);
   const [state, action] = useActionState<ActionState, FormData>(placeOrder, {});
   const items = useMemo(() => new Map(categories.flatMap((c) => c.items).map((i) => [i.id, i])), [categories]);
 
   const lines = Object.entries(cart).filter(([, q]) => q > 0).map(([id, qty]) => ({ id, qty }));
-  const total = lines.reduce((s, l) => s + (items.get(l.id)?.priceCents ?? 0) * l.qty, 0);
+  const subtotal = lines.reduce((s, l) => s + (items.get(l.id)?.priceCents ?? 0) * l.qty, 0);
+  const eligiblePrices = lines.map((l) => items.get(l.id)).filter((i) => i?.isLoyaltyEligible).map((i) => i!.priceCents);
+  const canUseReward = loggedIn && loyaltyBalance >= REWARD_STAMPS && eligiblePrices.length > 0;
+  const discount = useReward && canUseReward ? Math.min(...eligiblePrices) : 0;
+  const total = subtotal - discount;
   const add = (id: string, d: number) => setCart((c) => ({ ...c, [id]: Math.max(0, (c[id] ?? 0) + d) }));
 
   if (state.ok && state.data?.time) {
@@ -96,6 +103,17 @@ export function MenuWithCart({ categories, locale, loggedIn }: Props) {
                 );
               })}
             </ul>
+          )}
+          {canUseReward && (
+            <label className="flex items-center gap-2 text-sm">
+              <input type="checkbox" name="useReward" checked={useReward} onChange={(e) => setUseReward(e.target.checked)} />
+              {t("useReward", { balance: loyaltyBalance })}
+            </label>
+          )}
+          {discount > 0 && (
+            <div className="flex justify-between text-sm text-brand-700">
+              <span>{t("rewardApplied")}</span><span className="tabular-nums">−{formatMoney(discount, locale)}</span>
+            </div>
           )}
           <div className="flex justify-between border-t border-ink/10 pt-3 font-semibold">
             <span>{t("total")}</span><span className="tabular-nums">{formatMoney(total, locale)}</span>

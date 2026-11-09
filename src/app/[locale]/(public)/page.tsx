@@ -1,15 +1,16 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { formatMoney } from "@/lib/format";
 
 const favorites = [
-  { key: "porkCabbage", price: "13,95 $" },
-  { key: "porkChive", price: "13,95 $" },
-  { key: "beefOnion", price: "14,95 $" },
-  { key: "shrimpPork", price: "16,95 $" },
+  { key: "porkCabbage", priceCents: 1395 },
+  { key: "porkChive", priceCents: 1395 },
+  { key: "beefOnion", priceCents: 1495 },
+  { key: "shrimpPork", priceCents: 1695 },
 ] as const;
 
 export default async function HomePage() {
-  const t = await getTranslations("Home");
+  const [t, locale] = await Promise.all([getTranslations("Home"), getLocale()]);
   return (
     <div className="space-y-12">
       <section className="grid items-center gap-8 md:grid-cols-2">
@@ -41,7 +42,7 @@ export default async function HomePage() {
             <div key={f.key} className="card flex flex-col gap-2">
               <div className="aspect-[4/3] rounded-lg bg-gradient-to-br from-brand-100 to-brand-50" aria-hidden />
               <div className="font-medium">{t(`favorites.${f.key}`)}</div>
-              <div className="text-sm text-ink/60">{f.price}</div>
+              <div className="text-sm text-ink/60">{formatMoney(f.priceCents, locale)}</div>
             </div>
           ))}
         </div>

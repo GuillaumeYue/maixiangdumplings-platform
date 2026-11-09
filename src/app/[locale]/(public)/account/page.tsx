@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { redirect } from "@/i18n/navigation";
 import { prisma } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
+import { getLoyaltyBalance, REWARD_STAMPS } from "@/lib/loyalty";
 import { formatDateTime, formatMoney } from "@/lib/format";
 import { StatusBadge } from "@/components/ui/StatusBadge";
 
@@ -15,7 +16,7 @@ export default async function AccountPage() {
   const user = await getCurrentUser();
   if (!user) return redirect({ href: "/login?next=/account", locale });
   const t = await getTranslations("Account");
-  const [orders, reservations] = await Promise.all([
+  const [orders, reservations, balance] = await Promise.all([
     prisma.order.findMany({
       where: { userId: user.id },
       orderBy: { createdAt: "desc" },
@@ -23,11 +24,38 @@ export default async function AccountPage() {
       include: { items: true },
     }),
     prisma.reservation.findMany({ where: { userId: user.id }, orderBy: { reservedAt: "desc" }, take: 10 }),
+    getLoyaltyBalance(user.id),
   ]);
+  const stamps = balance % REWARD_STAMPS;
+  const rewardReady = balance >= REWARD_STAMPS;
 
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold">{t("title")}</h1>
+      <section className="card">
+        <h2 className="font-semibold">{t("loyalty")}</h2>
+        <div className="mt-3 grid grid-cols-10 gap-2">
+          {Array.from({ length: REWARD_STAMPS }, (_, i) => {
+            const filled = rewardReady || i < stamps;
+            return (
+              <div
+                key={i}
+                className={`flex aspect-square items-center justify-center rounded-full border text-lg ${filled ? "border-brand-500 bg-brand-100" : "border-ink/15"}`}
+              >
+                {filled ? "🥟" : ""}
+              </div>
+            );
+          })}
+        </div>
+        <p className="mt-3 text-sm text-ink/70">
+          {t("stamps", { count: balance })} ·{" "}
+          {rewardReady ? (
+            <span className="font-medium text-brand-700">{t("rewardReady")}</span>
+          ) : (
+            t("stampsToGo", { count: REWARD_STAMPS - stamps })
+          )}
+        </p>
+      </section>
       <section>
         <h2 className="mb-3 font-semibold">{t("orders")}</h2>
         {orders.length === 0 ? (

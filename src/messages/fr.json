@@ -73,14 +73,20 @@
     "errClosed": "Le restaurant est fermé à cette heure.",
     "errTooSoon": "Choisissez une heure au moins 30 minutes plus tard.",
     "errEmpty": "Le panier est vide.",
-    "errUnavailable": "Un article n'est plus disponible."
+    "errUnavailable": "Un article n'est plus disponible.",
+    "useReward": "Utiliser ma portion gratuite ({balance}/10 tampons)",
+    "rewardApplied": "Portion gratuite (fidélité)"
   },
   "Account": {
     "title": "Mon compte",
     "orders": "Mes commandes",
     "noOrders": "Aucune commande.",
     "reservations": "Mes réservations",
-    "noReservations": "Aucune réservation."
+    "noReservations": "Aucune réservation.",
+    "loyalty": "Carte fidélité",
+    "stamps": "{count} tampons",
+    "rewardReady": "Une portion gratuite vous attend !",
+    "stampsToGo": "Encore {count} tampons avant une portion gratuite"
   },
   "Status": {
     "PENDING": "En attente",

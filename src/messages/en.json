@@ -73,14 +73,20 @@
     "errClosed": "The restaurant is closed at that time.",
     "errTooSoon": "Pick a time at least 30 minutes from now.",
     "errEmpty": "Cart is empty.",
-    "errUnavailable": "An item is no longer available."
+    "errUnavailable": "An item is no longer available.",
+    "useReward": "Use my free portion ({balance}/10 stamps)",
+    "rewardApplied": "Free portion (loyalty)"
   },
   "Account": {
     "title": "My account",
     "orders": "My orders",
     "noOrders": "No orders yet.",
     "reservations": "My reservations",
-    "noReservations": "No reservations yet."
+    "noReservations": "No reservations yet.",
+    "loyalty": "Loyalty card",
+    "stamps": "{count} stamps",
+    "rewardReady": "A free portion is waiting for you!",
+    "stampsToGo": "{count} more stamps until a free portion"
   },
   "Status": {
     "PENDING": "Pending",

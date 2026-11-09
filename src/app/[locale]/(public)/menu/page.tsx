@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
+import { getLoyaltyBalance } from "@/lib/loyalty";
 import { MenuWithCart } from "./MenuWithCart";
 
 export async function generateMetadata() {
@@ -17,5 +18,6 @@ export default async function MenuPage() {
       include: { items: { orderBy: { sortOrder: "asc" } } },
     }),
   ]);
-  return <MenuWithCart categories={categories} locale={locale} loggedIn={!!user} />;
+  const balance = user ? await getLoyaltyBalance(user.id) : 0;
+  return <MenuWithCart categories={categories} locale={locale} loggedIn={!!user} loyaltyBalance={balance} />;
 }

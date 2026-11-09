@@ -73,14 +73,20 @@
     "errClosed": "该时间餐厅不营业。",
     "errTooSoon": "请选择至少 30 分钟之后的时间。",
     "errEmpty": "购物车是空的。",
-    "errUnavailable": "有菜品已下架。"
+    "errUnavailable": "有菜品已下架。",
+    "useReward": "使用免费一份（{balance}/10 印章）",
+    "rewardApplied": "免费一份（积分）"
   },
   "Account": {
     "title": "我的账户",
     "orders": "我的订单",
     "noOrders": "还没有订单。",
     "reservations": "我的预订",
-    "noReservations": "还没有预订。"
+    "noReservations": "还没有预订。",
+    "loyalty": "积分卡",
+    "stamps": "{count} 枚印章",
+    "rewardReady": "您有一份免费饺子待使用！",
+    "stampsToGo": "再集 {count} 枚即可免费一份"
   },
   "Status": {
     "PENDING": "待处理",
